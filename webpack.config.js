@@ -44,5 +44,7 @@ module.exports = {
         watchContentBase: true,
         open: true,
         writeToDisk: true,
+        compress: true,
+        hot: true,
     },
 }
