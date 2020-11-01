@@ -1,6 +1,24 @@
 const path = require('path')
+const fs = require('fs')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+function initWebpackHtmlWithDir(dirPath) {
+    const files = fs.readdirSync(dirPath).reduce((arr, file) => {
+        if (file.match(/\.(ejs|pug|hds)$/i)) {
+            arr.push(
+                new HtmlWebpackPlugin({
+                    filename: file,
+                    template: path.resolve(__dirname, dirPath + '/' + file),
+                }),
+            )
+        }
+
+        return arr
+    }, [])
+
+    return files
+}
 
 module.exports = {
     mode: 'development',
@@ -12,24 +30,19 @@ module.exports = {
         path: path.resolve('build'),
         filename: '[name].js',
     },
-    plugins: [
-        new CleanWebpackPlugin(),
-        new HtmlWebpackPlugin({
-            template: '!!ejs-compiled-loader!' + path.resolve(__dirname, `src/templates/ejs/pages/home.ejs`),
-        }),
-    ],
+    plugins: [new CleanWebpackPlugin(), ...initWebpackHtmlWithDir('src/templates/ejs')],
     module: {
         rules: [
             {
                 test: /\.ejs$/,
-                loader: 'ejs-loader',
+                use: ['html-loader', 'ejs-html-loader'],
             },
         ],
     },
     devServer: {
         contentBase: [path.resolve('./build')],
         watchContentBase: true,
-        open: false,
+        open: true,
         writeToDisk: true,
     },
 }
