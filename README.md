@@ -6,7 +6,7 @@ A template of webpack and templates js engine such as ejs, handlebar, pug...
 
 You can create your html page with availabel folders which configed template js engine such as `ejs`, `pug` & `handlebar`:
 
-![Alt text](./public/template-dir.png?raw=true 'template folders')
+![Alt text](./public/template-dir-v2.png?raw=true 'template folders')
 
 ### Set up
 
