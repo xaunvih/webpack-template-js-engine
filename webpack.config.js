@@ -2,6 +2,7 @@ const path = require('path')
 const fs = require('fs')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const DEV_MODE = process.env.npm_lifecycle_event == 'start'
 
 function initWebpackHtmlWithDir(dirPath) {
     const files = fs.readdirSync(dirPath).reduce((arr, file) => {
@@ -26,6 +27,11 @@ module.exports = {
     entry: {
         app: path.resolve(__dirname, 'src/js/main.js'),
     },
+    resolve: {
+        alias: {
+            scss: path.resolve(__dirname, 'src/scss'),
+        },
+    },
     output: {
         path: path.resolve('build'),
         filename: '[name].js',
@@ -36,6 +42,26 @@ module.exports = {
             {
                 test: /\.ejs$/,
                 use: ['html-loader', 'ejs-html-loader'],
+            },
+            {
+                test: /\.(scss)/,
+                use: [
+                    {
+                        loader: 'style-loader',
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: DEV_MODE,
+                        },
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: DEV_MODE,
+                        },
+                    },
+                ],
             },
         ],
     },
