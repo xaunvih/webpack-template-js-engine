@@ -26,7 +26,3 @@ npm start or yarn start
 And then, you can see the demo page:
 
 ![Alt text](./public/page.png?raw=true 'page')
-
-### License
-
-Copyright (c) 2020 XuanVinh
