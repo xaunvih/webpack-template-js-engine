@@ -41,6 +41,15 @@ module.exports = {
                 loader: ['raw-loader', 'handlebars-loader'],
             },
             {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                include: path.resolve('src/js'),
+                exclude: /(node_modules)/,
+                options: {
+                    compact: true,
+                },
+            },
+            {
                 test: /\.(scss)/,
                 use: [
                     {
