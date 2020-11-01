@@ -36,12 +36,16 @@ module.exports = {
         path: path.resolve('build'),
         filename: '[name].js',
     },
-    plugins: [new CleanWebpackPlugin(), ...initWebpackHtmlWithDir('src/templates/ejs')],
+    plugins: [new CleanWebpackPlugin(), ...initWebpackHtmlWithDir('src/templates/ejs'), ...initWebpackHtmlWithDir('src/templates/pug')],
     module: {
         rules: [
             {
                 test: /\.ejs$/,
                 use: ['html-loader', 'ejs-html-loader'],
+            },
+            {
+                test: /\.pug$/,
+                loader: ['raw-loader', 'pug-html-loader'],
             },
             {
                 test: /\.(scss)/,
