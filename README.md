@@ -1,6 +1,6 @@
 # webpack-template-js-engine
 
-A template of webpack and templates js engine such as ejs, handlebar, pug...
+A template project about webpack and templates js engine such as ejs, handlebar, pug.
 
 ### Usage
 
