@@ -1,6 +1,7 @@
-# webpack-template-js-engine - Small demo to help you guys easy start your demo pages faster
+# webpack-template-js-engine
 
-A template project about webpack and templates js engine such as ejs, handlebar, pug.
+ - Template project about webpack and templates js engine such as ejs, handlebar, pug.
+ - Help you guys easy start your demo pages faster
 
 ### Usage
 
