@@ -1,7 +1,7 @@
 # webpack-template-js-engine
 
  - Example template project about webpack + templates js engine such as ejs, handlebar, pug and nunjucks.
- - Help you guys can start easily demo pages
+ - Can start easily demo pages
 
 ### Usage
 
