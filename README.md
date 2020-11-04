@@ -1,11 +1,11 @@
 # webpack-template-js-engine
 
- - Example template project about webpack and templates js engine such as ejs, handlebar, pug.
- - Help you guys easily start your demo pages faster
+ - Example template project about webpack + templates js engine such as ejs, handlebar, pug and nunjucks.
+ - Help you guys can start easily demo pages
 
 ### Usage
 
-You can create your html page with availabel folders which configed template js engine such as `ejs`, `pug` & `handlebar`:
+You can create your html page with availabel folders which configed template js engine such as `ejs`, `pug`, `handlebar` & `nunjucks`:
 
 ![Alt text](./public/template-dir-v2.png?raw=true 'template folders')
 
